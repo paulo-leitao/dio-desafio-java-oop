@@ -1,6 +1,6 @@
 # Java Challenge DIO
 
-In this repository I created a Digital Bank like system using Oriented-Object Programming principles.
+In this repository I created a Digital Bank-like system using Oriented-Object Programming principles.
 
 - [x] Encapsulation
 - [x] Abstraction

@@ -11,16 +11,20 @@ public abstract class Conta implements IServicos{
   protected double saldo;
   protected Cliente cliente;
   private List<Cartao> cartoes;
+  private List<Conta> contas;
 
   protected String chavePixTelefone;
   protected String chavePixEmail;
   protected String chavePixCpf;
+  private Banco banco = Banco.getBanco();
 
   
   public Conta(Cliente cliente) {
     this.cliente = cliente;
     this.numero = SEQUENCIAL_ID++;
     this.agencia = CODIGO_AGENCIA;
+    
+    banco.adicionarConta(this);
   }
   
   public void sacar(double valor){
@@ -36,7 +40,8 @@ public abstract class Conta implements IServicos{
     contaDestino.depositar(valor);
   }
   
-  public void cadastrarChavePix(String tipo, String chave, List<Conta> contas){
+  public void cadastrarChavePix(String tipo, String chave){
+    contas = banco.getContas();
     try {
       // boolean hasChavePix;
       switch(tipo){

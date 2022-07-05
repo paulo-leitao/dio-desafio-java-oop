@@ -9,10 +9,10 @@ In this repository I created a Digital Bank-like system using Oriented-Object Pr
 
 ## Features
 
-- Create a Bank and set the name of it.
+- You can set a name for your Bank.
 ```
-  Banco banco = new Banco();
-  banco.setNome("Meu Banco");
+  Banco banco = Banco.getBanco();
+  banco.setNome("My Bank");
 ```
 
 - Create an instance of a client and choose between two types of accounts or both.
@@ -25,13 +25,13 @@ In this repository I created a Digital Bank-like system using Oriented-Object Pr
   ContaPoupanca poupanca = new ContaPoupanca(paulo);
 ```
 
-- Add accounts to bank account list.
+- :art: Now there is no need to manually add an account to the bank account list, automatically when created the account is added to it.
 ```
-  List<Conta> contas = new ArrayList<>();
-  contas.add(cc);
-  contas.add(poupanca);
+  // List<Conta> contas = new ArrayList<>();
+  // contas.add(cc);
+  // contas.add(poupanca);
 
-  banco.setContas(contas);
+  // banco.setContas(contas);
 ```
 
 - Print account data.
@@ -53,13 +53,13 @@ In this repository I created a Digital Bank-like system using Oriented-Object Pr
   poupanca.imprimirExtrato();
 ```
 
-- Register a unique Pix key for each account.
+- :sparkles: Register a unique Pix key for each account.
 ```
   poupanca.cadastrarChavePix("email", "paulo.sales@outlook.com", contas);
   cc.cadastrarChavePix("email", "paulo.sales@outlook.com", contas);
 ```
 
-- Generate a random Credit Card and visualize it.
+- :sparkles: Generate a random Credit Card and visualize it.
 ```
   Cartao cartao = new Cartao(paulo);
   cartao.impprimirDados();
